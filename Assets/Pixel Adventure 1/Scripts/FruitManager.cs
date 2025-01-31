@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FruitManager :MonoBehaviour {
@@ -18,5 +19,10 @@ public class FruitManager :MonoBehaviour {
         //count fruits on screen
         int count = gameObject.transform.childCount;
         text.text = "Score: " + (total - count) + "/" + total;
+
+        if(count == 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
     }
 }
