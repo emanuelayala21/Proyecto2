@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class FruitManager :MonoBehaviour {
     public Text text;
     public int total;
+    public Text levelCleared;
     void Start() {
         total = gameObject.transform.childCount;
         fruitCount();
@@ -21,8 +22,14 @@ public class FruitManager :MonoBehaviour {
         text.text = "Score: " + (total - count) + "/" + total;
 
         if(count == 0) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            levelCleared.gameObject.SetActive(true);//Show level completed message
+
+            Invoke("ChangeScene",3.5f);
         }
+
+    }
+    private void ChangeScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
 }
