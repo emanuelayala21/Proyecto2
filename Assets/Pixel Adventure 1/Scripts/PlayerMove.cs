@@ -59,11 +59,11 @@ public class PlayerMove :MonoBehaviour {
             if(CheckGround.isGrounded) {//first jump
                 canDoubleJump = true;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
-            }else {
-                if(Input.GetKeyDown("space") && canDoubleJump){ ///double jump
-                    animator.SetBool("DoubleJump", true );
+            } else {
+                if(Input.GetKeyDown("space") && canDoubleJump) { ///double jump
+                    animator.SetBool("DoubleJump", true);
                     rb2d.velocity = new Vector2(rb2d.velocity.x, doubleJumpSpeed);
-                    canDoubleJump=false; //double jump false
+                    canDoubleJump = false; //double jump false
                 }
             }
             //behavior
@@ -86,14 +86,14 @@ public class PlayerMove :MonoBehaviour {
             animator.SetBool("DoubleJump", false); // Disable double jump animation
             animator.SetBool("Falling", false); // Disable falling animation
 
-            if(rb2d.velocity.x != 0) { // Check horizontal movement
+            if(Mathf.Round(rb2d.velocity.x) != 0) { // Check horizontal movement
                 animator.SetBool("Run", true); // Activate run animation if moving
             } else {
                 animator.SetBool("Run", false); // Disable run animation if stationary
             }
         }
         if(rb2d.velocity.y < 0) {
-            animator.SetBool("Falling", true); 
+            animator.SetBool("Falling", true);
 
         } else {
             animator.SetBool("Falling", false); // Disable falling animation
