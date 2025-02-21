@@ -5,7 +5,7 @@ using UnityEngine;
 public class JoystickPlayerMove :MonoBehaviour {
 
     private float horizontalMove = 0;
-    private float verticalMove = 0;
+    //private float verticalMove = 0;
 
     public Joystick joystick;
 

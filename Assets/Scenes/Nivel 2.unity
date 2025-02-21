@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 664299828}
   - component: {fileID: 664299829}
   m_Layer: 0
-  m_Name: Brown On (32x8)_0
+  m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
