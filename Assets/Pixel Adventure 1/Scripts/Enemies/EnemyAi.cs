@@ -28,11 +28,16 @@ public class EnemyAi :MonoBehaviour {
         
         transform.position = Vector2.MoveTowards(transform.position, moveSpot[i].transform.position, speed * Time.deltaTime);  // Move the enemy towards the current target spot
 
-        // Flip the sprite depending on the movement direction
-        if(transform.position.x > previousPos.x) {
+        if(transform.position.x > previousPos.x) { // Flip the sprite depending on the movement direction
             spriteRenderer.flipX = true; // Moving right
+            animator.SetBool("Idle", false);
         } else if(transform.position.x < previousPos.x) {
             spriteRenderer.flipX = false; // Moving left
+            animator.SetBool("Idle", false);
+        }
+        if(transform.position.x == previousPos.x) {
+            animator.SetBool("Idle", true);
+
         }
 
         previousPos = transform.position;// Store the current position as the previous position for the next frame
